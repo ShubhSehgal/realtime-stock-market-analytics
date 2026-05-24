@@ -15,17 +15,24 @@ Kafka, Spark Structured Streaming, Python, PostgreSQL, FastAPI, React, Docker, A
 
 ## Architecture
 
+```
 Alpha Vantage / Simulated Stock Producer
-
+        |
+        v
 Apache Kafka topic: stock_ticks
-
+        |
+        v
 Spark Structured Streaming
-
+        |
+        v
 PostgreSQL tables
-
+        |
+        v
 FastAPI REST API
-
+        |
+        v
 React Dashboard
+```
 
 ## Instructions to Run Locally
 
@@ -35,14 +42,16 @@ React Dashboard
 cp .env.example .env
 ```
 
-Edit `.env` and add your Alpha Vantage API key:
-
+```text
 ALPHA_VANTAGE_API_KEY=your_key_here
 MARKET_DATA_MODE=alpha_vantage
+```
 
 To run without an API key, use:
 
+```text
 MARKET_DATA_MODE=simulated
+```
 
 ### 2. Start Infrastructure
 
@@ -69,17 +78,21 @@ docker compose exec spark bash -lc "mkdir -p /tmp/.ivy2/cache /tmp/.ivy2/jars &&
 
 Frontend:
 
+```text
 http://localhost:3000
+```
 
 Backend API docs:
 
+```text
 http://localhost:8000/docs
+```
 
 ## Alpha Vantage Mode
 
 The producer supports two modes:
 
-```
+```text
 MARKET_DATA_MODE=alpha_vantage
 MARKET_DATA_MODE=simulated
 ```
